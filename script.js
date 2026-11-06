@@ -3,22 +3,16 @@
 
   /* Theme */
   try { var s = localStorage.getItem("theme"); if (s) root.setAttribute("data-theme", s); } catch (e) {}
-  document.getElementById("theme").addEventListener("click", function () {
-    var cur = root.getAttribute("data-theme");
-    if (!cur) cur = "light";
-    var next = cur === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch (e) {}
-  });
-
-  /* Copy email */
-  var btn = document.getElementById("copy"), done = document.getElementById("copied");
-  btn.addEventListener("click", function () {
-    var el = document.getElementById("email");
-    function say(m) { done.textContent = m; setTimeout(function () { done.textContent = ""; }, 2200); }
-    function pick() { var r = document.createRange(); r.selectNodeContents(el); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); say("selected"); }
-    try { navigator.clipboard.writeText(el.textContent).then(function () { say("copied"); }, pick); } catch (e) { pick(); }
-  });
+  var theme = document.getElementById("theme");
+  if (theme) {
+    theme.addEventListener("click", function () {
+      var cur = root.getAttribute("data-theme");
+      if (!cur) cur = "light";
+      var next = cur === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  }
 
   /* Portrait follows the cursor */
   var stage = document.querySelector(".portrait .stage");

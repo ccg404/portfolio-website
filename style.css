@@ -373,7 +373,7 @@ h3 {
 }
 /* Sections */
 section.s {
-  padding-block: clamp(36px, 5vw, 64px);
+  padding-block: clamp(52px, 6vw, 72px);
 }
 .head {
   margin-bottom: 26px;
@@ -462,7 +462,7 @@ section.s {
 
 .about .in {
   padding: 20px 20px;
-  max-width: 520px;
+  max-width: 720px;
 }
 .about p {
   font-size: 17px;
